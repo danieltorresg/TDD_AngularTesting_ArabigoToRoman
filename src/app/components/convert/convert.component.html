@@ -1,0 +1,41 @@
+<mat-card class="form-container">
+  <mat-card-title> Convert Number to Roman</mat-card-title>
+  <form [formGroup]="converNumberForm" novalidate (submit)="convertNumber()">
+    <mat-form-field class="form-field" appearance="outline">
+      <mat-label> Number To Convert </mat-label>
+      <input
+        matInput
+        type="number"
+        formControlName="numberToConvert"
+        required
+        #numberToConvert
+      />
+      <mat-error
+        *ngIf="
+          f.numberToConvert.invalid &&
+          (f.numberToConvert.dirty || f.numberToConvert.touched)
+        "
+      >
+        <span *ngIf="f.numberToConvert.errors.required"
+          >This field is mandatory.</span
+        >
+        <span *ngIf="f.numberToConvert.errors.pattern"
+          >This field is invalid.</span
+        >
+      </mat-error>
+    </mat-form-field>
+
+    <button
+      [disabled]="converNumberForm.pristine || converNumberForm.invalid"
+      mat-raised-button
+      color="primary"
+      type="submit"
+    >
+      Covert
+    </button>
+  </form>
+  <div class="result">
+    <mat-card-title> Result</mat-card-title>
+    <h2>{{ convertedNumber }}</h2>
+  </div>
+</mat-card>
