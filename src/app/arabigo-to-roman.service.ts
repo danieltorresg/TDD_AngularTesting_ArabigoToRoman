@@ -9,7 +9,7 @@ export class ArabigoToRomanService {
   constructor() { }
 
   arabigo_to_roman = (numeroDecimal: number):string => {
-    if (numeroDecimal > 1000) throw 'Este sistema de conversión no acepta numeros mayores a 1000';
+    if (numeroDecimal > 1000) return 'This conversion system does not accept numbers greater than 1000';
     var numeros = [1, 5, 10, 50, 100, 500, 1000],
       romanos = ["I", "V", "X", "L", "C", "D", "M"],
       numeroActual,
